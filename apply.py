@@ -9,7 +9,7 @@ import urllib.error
 from datetime import datetime, timezone
 
 B12_ENDPOINT = "https://b12.io/apply/submission"
-SIGNING_SECRET = "hello-there-b12"
+SIGNING_SECRET = "hello-there-from-b12"
 
 
 def iso8601_utc_now_ms() -> str:
