@@ -1,0 +1,24 @@
+name: b12-apply
+
+on:
+  workflow_dispatch: {}
+  push:
+    branches: ["main"]
+
+jobs:
+  submit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Submit application to B12
+        env:
+          # REQUIRED:
+          B12_EMAIL: ${{ secrets.B12_EMAIL }}
+
+          # Optional overrides (defaults are fine if you don’t set these):
+          B12_REPOSITORY_LINK: "https://github.com/luzio5/b12_apply"
+        run: |
+          python apply.py
